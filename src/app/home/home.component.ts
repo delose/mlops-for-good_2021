@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
         console.log("data1: " + JSON.stringify(data));
       }, error => {
         console.log("data2: " + JSON.stringify(error));
+        this.msg = "Fix is ongoing - see developer console logs for more info";
       })
 		}
 	}
