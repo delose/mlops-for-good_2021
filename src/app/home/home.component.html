@@ -1,0 +1,34 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+        <mat-card>
+            <div style="text-align:center;" class="form-group">
+                <h1>Debrazio</h1>
+                <div style="text-align:center">
+                    <!-- <div>
+                        Recyclable
+                    </div>
+                    <div>
+                        Organic
+                    </div> -->
+                    <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                    <div><img [src]="url" *ngIf="url"></div>
+                    <p>
+                        <input type="file" (change)="selectFile($event)">
+                    </p>
+                </div>
+                <!-- <h2>What is it?</h2>
+                <p>
+                    <strong>FAT (Find A Trail!)</strong> allows users to find a nearby trail that the user can go to.
+                </p>
+
+                <p>
+                    <strong>BAB (Borrow A Bike!)</strong> is an optional feature that lets the users borrow/build/buy a bike so they can have motivation to use a bike daily.
+                </p>
+                
+                <p>
+                    <strong>30 (30 Minutes!)</strong> is the minimum time needed to do the biking/running or any exercise the users want to do.
+                </p> -->
+            </div>
+        </mat-card>
+    </div>
+</div>
