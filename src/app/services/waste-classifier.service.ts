@@ -10,14 +10,22 @@ export class WasteClassifierService {
 
     // braapDB 00 / day + $0.01 each other
 
-    classify(file: any) {
+    classify(file: File) {
 
-        let requestUrl = "http://waste-classifier-tf2-serving-waste-classifier.default-tenant.app.mlops5.iguazio-c0.com/waste_classifier/predict";
+        // let requestUrl = "http://waste-classifier-tf2-serving-waste-classifier.default-tenant.app.mlops5.iguazio-c0.com/waste_classifier/predict";
+        let requestUrl = "https://2nk6lymsq5.execute-api.ap-southeast-1.amazonaws.com/prod";
         
         let httpHeaders: HttpHeaders = new HttpHeaders()
             .set('Content-type', 'image/jpeg');
 
-        return this.http.post<any>(requestUrl, JSON.stringify(file),
-            {headers: httpHeaders,  params: new HttpParams()});
+        console.log("name: " + file.name + ", size: " + file.size + ", type: " + file.type + ", modified: " + file.lastModified);
+
+        // https://stackoverflow.com/questions/46408537/angular-httpclient-http-failure-during-parsing
+        return this.http.post(requestUrl, file,
+        {responseType: 'text'});
+        // json (the default)
+        // text
+        // arraybuffer
+        // blob
     }
 }
